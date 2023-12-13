@@ -24,7 +24,7 @@
 
 ## About 
 
-In today's world with many food options out there it's really hard to know if the food we are consuming is providing good amount of nutrition. A nutrition analyser can be used to analyse the calories of food content, this analyzer give context of the content. This analyser is developed using 
+In the contemporary world, with a plethora of food choices available, determining the nutritional value of what we consume can be challenging. The use of a nutrition analyzer is valuable in assessing not only the calorie content but also providing contextual information about the food's nutritional composition.This analyser is developed using 
 - External API () for calorie analysis.
 - Perspective API (Perspective) for . 
 
@@ -145,15 +145,15 @@ $ gunicorn -w 4 -b 127.0.0.1:5000 run:app
 ### Run with Docker
 
 ```
-$ docker build -t text-analyser .
+$ docker build -t nutrional-analyser .
 
-$ docker run -p 5000:5000 --name text-analyser text-analyser
+$ docker run -p 5000:5000 --name nutrional-analyser nutrional-analyser
  
 ```
 
 ## System Overview
 
-The front-end serves as a seamless user interface that works as an website. The backend is a Restful service interface for CRUD operations (for example, data query of text content) deployed via google cloud to facilitate scalable performance with kubernetes of the dockerized image. SSL deployments are facilitated through Google Cloud. The application interacts with Nutritional analysis Api and Perspective API(needs to be changed) for calorie calulation for the diet. Furthermore, the application uses google cloud datastore as database to store our text content information.
+The user interface operates seamlessly on the front-end, functioning as a website. On the back-end, there is a Restful service interface designed for CRUD operations, such as querying textual content data. This back-end is deployed on Google Cloud to ensure scalable performance using Kubernetes for the dockerized image. SSL deployments are facilitated through Google Cloud. The application utilizes the Nutritional Analysis API and an alternative to the Perspective API for calculating calorie content in diets. Additionally, Google Cloud Datastore serves as the database for storing textual content information.
 
 ### Exploring Components in Nutritional Analysis App
 
@@ -175,7 +175,9 @@ Once successfully authenticated, users can enter details about the food they hav
 
 
 ### Main Page
-This will be the initial dashboard page, where user will be required to enter signup details that will be stored inside the dbms.signup ,login,(next page  add line) nutritional analyis page , text box
+This will be the initial dashboard page, where user will be required to enter signup details that will be stored inside the dbms.Upon submission, users will be redirected to a login page where they can input their usernames and passwords.
+
+Once authenticated, users will be directed to the nutritional analysis page. On this page, users are prompted to enter details about ingredients into a designated text input field for further processing and analysis.
 
 After the clicking the analyse button, we will get nutritional fact table
 
@@ -207,15 +209,15 @@ After clicking the analyse button the report(s) are generated for the same.
 
 ### Flask App
 
-Flask is a small and lightweight Python web framework that provides useful tools and features that make creating web applications in Python easier. It gives developers flexibility and is a more accessible framework for new developers since you can build a web application quickly using only a single Python file. Flask is also extensible and doesn’t force a particular directory structure or require complicated boilerplate code before getting started.
+Flask is a compact and lightweight Python web framework designed to simplify the process of creating web applications. It offers valuable tools and features, making web development in Python more accessible. Its flexibility and simplicity make it particularly beginner-friendly, allowing developers to swiftly build web applications using just one Python file. Flask is also adaptable and doesn't impose a specific directory structure or demand intricate boilerplate code at the outset.
 
 Flask uses the Jinja template engine to dynamically build HTML pages using familiar Python concepts such as variables, loops, lists, and so on. 
 
 ### RESTful-API
 
-A REST API (also known as RESTful API) is an application programming interface (API or web API) that conforms to the constraints of REST architectural style and allows for interaction with RESTful web services. REST stands for representational state transfer and was created by computer scientist Roy Fielding.
+A REST API, short for Representational State Transfer Application Programming Interface, adheres to the principles of the REST architectural style. It enables interaction with RESTful web services and follows the guidelines established by computer scientist Roy Fielding. REST, which stands for representational state transfer, forms the basis of this approach.
 
-**Flask-RESTful** is an extension for Flask that adds support for quickly building REST APIs. It is a lightweight abstraction that works with your existing ORM/libraries. Flask-RESTful encourages best practices with minimal setup. If you are familiar with Flask, Flask-RESTful should be easy to pick up.
+**Flask-RESTful** is an extension designed for Flask, which enhances its capabilities by enabling the efficient creation of REST APIs. This extension provides a streamlined abstraction layer that seamlessly integrates with your current Object-Relational Mapping (ORM) and libraries. Flask-RESTful promotes the adoption of best practices while requiring only minimal configuration. If you are already familiar with Flask, getting acquainted with Flask-RESTful should be a straightforward process.
 
 ### CRUD Operations 
 
@@ -253,7 +255,7 @@ Cloud computing infrastructure is available for private cloud, public cloud, and
 
 Why google cloud? 
 
-Google Cloud Platform (GCP) naturally offers a more limited range of services and doesn’t command the same global spread of data centre offered by AWS and Azure. It does, however, give customers a highly specialised service in three main streams: big data, machine learning, and analytics, with good scale and stable load balancing, as well as those famously low response times. Google’s container offering provides users with a significant advantage as it developed the very Kubernetes standard now utilised by competitors AWS and Azure.
+Google Cloud Platform (GCP) may not have the extensive array of services and global data center coverage that AWS and Azure offer, but it excels in three primary areas: big data, machine learning, and analytics. GCP provides specialized, high-quality services with excellent scalability, dependable load balancing, and renowned low response times. Notably, Google's container offering stands out because it pioneered Kubernetes, which is now adopted by rivals AWS and Azure, giving users a significant advantage.
 
 Customers tend to choose GCP as a secondary vendor in a hybrid solution, though it is becoming increasingly popular with organisations that are direct competitors with Amazon, and therefore cannot use AWS. It’s important to note that GCP is very open-source- and DevOps-centric, and as a result does not integrate as well with Microsoft Azure.
 
@@ -269,7 +271,7 @@ This deployment configured with **load balancer**
 
 Why Google Cloud Datastore?
 
-Datastore is a highly scalable NoSQL database. Datastore automatically handles sharding and replication, providing the application with a highly available and durable database that scales automatically to handle incoming load. Datastore provides a myriad of capabilities such as ACID transactions, SQL-like queries, indexes, and much more.
+Datastore is a NoSQL database renowned for its exceptional scalability. It autonomously manages sharding and replication processes, ensuring that the application benefits from a database that is both highly available and durable, automatically scaling to accommodate increasing workloads. Datastore offers a wide range of functionalities, including ACID transactions, SQL-like queries, indexes, and various other features.
 
 -   Product catalogs that provide real-time inventory and product details for a retailer.
 -   User profiles that deliver a customised experience based on the user’s past activities and preferences.
@@ -338,13 +340,15 @@ spec:
 
 ### Docker
 
-Docker is an open platform for developing, shipping, and running applications. Docker enables you to separate your applications from your infrastructure so you can deliver software quickly. With Docker, you can manage your infrastructure in the same ways you manage your applications. By taking advantage of Docker’s methodologies for shipping, testing, and deploying code quickly, you can significantly reduce the delay between writing code and running it in production.
+Docker is a platform that is openly accessible for the development, transportation, and execution of applications. It allows for the isolation of applications from infrastructure, facilitating swift software delivery. Docker empowers you to handle your infrastructure much like your applications, leveraging its approaches to expedite the shipping, testing, and deployment of code. This results in a substantial reduction in the time gap between code creation and its production implementation.
 
-Docker provides the ability to package and run an application in a loosely isolated environment called a container. The isolation and security allows you to run many containers simultaneously on a given host. Containers are lightweight and contain everything needed to run the application, so you do not need to rely on what is currently installed on the host. You can easily share containers while you work, and be sure that everyone you share with gets the same container that works in the same way.
+Docker offers the capability to encapsulate and execute an application within a flexibly isolated environment known as a container. This isolation and security feature enable the concurrent operation of numerous containers on a specific host. Containers are lightweight and encompass all the essentials for running an application, eliminating the reliance on the host's current installations. Sharing containers during collaboration is straightforward, ensuring that everyone receives an identical container that functions uniformly.
 
 Docker provides tooling and a platform to manage the lifecycle of your containers:
 
 -   Develop your application and its supporting components using containers.
 -   The container becomes the unit for distributing and testing your application.
 -   When you’re ready, deploy your application into your production environment, as a container or an orchestrated service. This works the same whether your production environment is a local data centre, a cloud provider, or a hybrid of the two.
+
+
 
